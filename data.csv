@@ -1,0 +1,11 @@
+pid,Age,Sex,Adult BMI (kg/m2),Child Weight (kg),Child Height (cm),filename,Chest location,Acquisition mode,Recording equipment ,diagnosis
+162,67,F,24.9,,,162_2b4_Tc_mc_AKGC417L.wav,Trachea,simultaneous/ multichannel,AKG C417L Microphone,COPD
+204,66,M,29.76,,,204_7p5_Ll_mc_AKGC417L.wav,Lateral left ,simultaneous/ multichannel,AKG C417L Microphone,COPD
+135,70,M,21,,,135_2b3_Al_mc_LittC2SE.wav,Anterior left ,simultaneous/ multichannel,3M Littmann Classic II SE Stethoscope,Pneumonia
+185,75,M,27.7,,,185_1b1_Pr_sc_Litt3200.wav,Posterior right,sequential/single channel,3M Litmmann 3200 Electronic Stethoscope,COPD
+107,75,F,33.7,,,107_2b4_Pr_mc_AKGC417L.wav,Posterior right,simultaneous/multichannel,AKG C417L Microphone,COPD
+162,67,F,24.9,,,162_2b3_Ar_mc_AKGC417L.wav,Anterior right,simultaneous/multichannel,AKG C417L Microphone,COPD
+198,71,M,18.6,,,198_6p1_Al_mc_AKGC417L.wav,Anterior left ,simultaneous/multichannel,AKG C417L Microphone,COPD
+122,66,M,33,,,122_2b2_Tc_mc_LittC2SE.wav,Trachea,simultaneous/multichannel,3M Littmann Classic II SE Stethoscope,Pneumonia
+181,65,M ,26.4,,,181_1b1_Tc_mc_LittC2SE.wav,Trachea,simultaneous/multichannel,3M Littmann Classic II SE Stethoscope,COPD
+156,80,M,22.9,,,156_2b3_Ll_mc_AKGC417L.wav,Lateral left ,simultaneous/multichannel,AKG C417L Microphone,COPD
