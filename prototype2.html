@@ -15,7 +15,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.1/xlsx.full.min.js"></scri
 $(document).ready(function(){
  $('#load_data').click(function(){
   $.ajax({
-   url:"data.csv",
+   url:"https://raw.githubusercontent.com/AwesomeTornados/DVAClass/main/data.csv",
    dataType:"text",
    success:function(data)
    {
