@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <!-- add title -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- import required libraries here -->
+<script src="d3.min.js?v=3.2.8"></script>
+    <script type="text/javascript"charset="utf-8"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+    <script>
+$(document).ready(function(){
+ $('#load_data').click(function(){
+  $.ajax({
+   url:"data.csv",
+   dataType:"text",
+   success:function(data)
+   {
+    var employee_data = data.split(/\r?\n|\r/);
+    var table_data = '<table class="table table-bordered table-striped">';
+    for(var count = 0; count<4; count++)
+    {
+     var cell_data = employee_data[count].split(",");
+     table_data += '<tr>';
+     for(var cell_count=0; cell_count<6; cell_count++)
+     {
+      if(count === 0 )
+      {
+       table_data += '<th>'+cell_data[cell_count]+'</th>';
+      }
+      else if(count===3)
+      {
+       table_data += '<td>'+cell_data[cell_count]+'</td>';
+      }
+      else{
+          continue;
+      }
+     }
+     table_data += '</tr>';
+    }
+    table_data += '</table>';
+      $('#header1').html('<h2 class="generaldata">General Data</h2>');
+    $('#employee_table').html(table_data);
+    
+   $('#header2').html('<h2 class="audioreport">Audio Report and Diagnosis</h2><h3>Type: Lung</h3>');
+     var table_data2 = '<table class="table2 table-bordered table-striped2" id="mainTable2">';
+    for(var count = 0; count<4; count++)
+    {
+     var cell_data = employee_data[count].split(",");
+     table_data2 += '<tr>';
+     for(var cell_count=7; cell_count<11; cell_count++)
+     {
+      if(count === 0)
+      {
+       table_data2 += '<th>'+cell_data[cell_count]+'</th>';
+      } 
+       else if(count===3)
+      {
+       table_data2 += '<td>'+cell_data[cell_count]+'</td>';
+      }
+      else{
+          continue;
+      }
+     }
+     table_data2 += '</tr>';
+    }
+    table_data2 += '</table>';
+    $('#employee_table2').html(table_data2);
+   }
+  });
+ });
+ 
+});
+</script>
+    <style>
+
+
+     .dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+    
+        canvas, svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.spectrogram {
+  position: relative;
+}
+
+.axis {
+  font: 14px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+}
+
+.axis line {
+  shape-rendering: crispEdges;
+  stroke: #444;
+  stroke-width: 1.0px;
+  stroke-dasharray: 2,4;
+}
+        #waveform{
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+}
+#wave-spectrogram{
+  margin: 10px auto;
+  position: relative;
+}
+#wave-spectrogram canvas{
+  left: 0;
+}
+    </style>
+
+    <title>Awesome Tornados Demo</title>
+
+</head>
+
+
+<body>
+    <!-- Add heading for the visualization -->
+   <h1>Patient Dashboard</h1>
+    <hr>
+    <div class="dropdown">
+       <p style='margin-bottom:0.1%, margin: auto'>Select Patient</p>
+  <select style="margin-top: .1%" class="dropbtn">Select Patient</select>
+  <div class="dropdown-content">
+    <a href="prototype2.html">Andrew Schulz</a>
+    <a href="prototype3.html">Dave Chapelle</a>
+    <a href="prototype4.html">Kevin Hart</a>
+  </div>
+</div>
+    <!-- append visualization svg to this div-->
+    <div>
+
+    </div>
+
+     <div class="container">
+   <div class="table-responsive">
+
+    
+    <p style='margin-bottom: 0.3%, margin-top: .3%'>Load Data</p>
+     <select style="margin-left: 8.5%" type="button" name="load_data" id="load_data" class="btn btn-info"></select>
+    <br />
+       <div id='header1'></div>
+    <div id="employee_table">
+    
+    </div>
+       <div id='header2'></div>
+    <div id='employee_table2'></div>
+   </div>
+  </div>
+
+  <br>
+    <h2>Audio Analysis</h2>
+<div id="spectrogram"></div>
+
+		<script src="jquery.min.js"></script>
+		<script type='text/javascript' src='spectrogram-v12.js'></script>
+		<script>
+		var spectrogram = new Spectrogram({
+			font:"14px Arial",
+			fftsize: Math.pow(2,11),
+			scrollDirection: 1,
+			backgroundColor: "#04AA6D",
+			audioFiles: [{
+				title: "Kevin Hart",
+				value: "sounds/135_2b3_Al_mc_LittC2SE.wav",
+				selected: true
+			}]
+		});
+		</script>
+
+</body>
+
+</html>
